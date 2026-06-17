@@ -17,7 +17,7 @@ const Navbar = () => {
   const user = null;
 
   return (
-    <header className="fixed top-0 z-50 w-full border-b border-white/20 bg-white/30 backdrop-blur-xl shadow-sm">
+    <header className="w-full border-b border-white/20 bg-white/30 backdrop-blur-xl shadow-sm">
       <nav className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
         <Link href="/" className="flex items-center gap-3">
           <div className="rounded-xl bg-gradient-to-r from-violet-600 to-indigo-600 p-2 text-white shadow-lg">

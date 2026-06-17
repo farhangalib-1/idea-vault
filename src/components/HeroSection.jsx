@@ -9,7 +9,7 @@ import { Button } from '@heroui/react';
 import {ArrowUpRightFromSquare} from '@gravity-ui/icons';
 const HeroSection = () => {
   return (
-    <div className="w-full pt-20 flex items-center justify-center">
+    <div className="w-full flex items-center justify-center">
     <Swiper
         spaceBetween={30}
         centeredSlides={true}
