@@ -16,6 +16,11 @@ import {
 import Link from "next/link";
 import { redirect } from "next/navigation";
 const page = () => {
+     const signIn = async () => {
+  const data = await authClient.signIn.social({
+    provider: "google",
+  });
+}
      const onSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
@@ -64,7 +69,7 @@ const page = () => {
               <Button type="submit" className="w-full" variant="primary" color="brand">
                 Login
               </Button>
-              <Button type="submit" className="w-full" variant="outline" color="brand">
+              <Button onClick={signIn} type="submit" className="w-full" variant="outline" color="brand">
                 <FcGoogle className="mr-2" />
                 Sign in with Google
               </Button>

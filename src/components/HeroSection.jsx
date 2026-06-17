@@ -8,6 +8,7 @@ import Image from 'next/image';
 import { Button } from '@heroui/react';
 import {ArrowUpRightFromSquare} from '@gravity-ui/icons';
 import Link from 'next/link';
+
 const HeroSection = () => {
   return (
     <div className="w-full flex items-center justify-center">
