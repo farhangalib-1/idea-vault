@@ -1,5 +1,6 @@
 import React from 'react'
-import {Chip} from "@heroui/react";
+import {Button, Chip} from "@heroui/react";
+import {Description, Label, TextArea, TextField} from "@heroui/react";
 import Image from 'next/image';
 const page = async({ params }) => {
     const {Id} = await params;
@@ -8,7 +9,7 @@ const page = async({ params }) => {
     
   return (
     <div>
-      <div className='border p-5 rounded-lg shadow-md bg-white/30 backdrop-blur-xl w-5/12 mx-auto my-10'>
+      <div className='border p-5 rounded-lg shadow-md bg-white/30 backdrop-blur-xl w-11/12  md:w-5/12 mx-auto my-10'>
         <Image src={data.imageURL} alt={data.ideaTitle} width={800} height={400} className='rounded-lg object-cover mb-4 w-full' />
         <Chip color="accent">{data.category}</Chip>
         <h1 className='text-4xl font-bold'>{data.ideaTitle}</h1>
@@ -27,8 +28,16 @@ const page = async({ params }) => {
         </div>
         </div>
       </div>
-      <div className='border p-5 rounded-lg shadow-md bg-white/30 backdrop-blur-xl w-5/12 mx-auto my-10'>
+      <div className='border p-5 rounded-lg shadow-md bg-white/30 backdrop-blur-xl w-11/12  md:w-5/12 mx-auto my-10'>
         <h1 className='text-2xl font-bold mb-4'>Comments</h1>
+         <TextField className="w-full" name="message">
+      <Label>your comment</Label>
+      <TextArea placeholder="Write your message here..." rows={4} />
+      <Description>Maximum 500 characters</Description>
+    </TextField>
+    <Button className="mt-4" color="primary">
+      Post Comment
+    </Button>
       </div>
     </div>
   )
