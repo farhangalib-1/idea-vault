@@ -7,6 +7,7 @@ import { Autoplay, Pagination} from 'swiper/modules';
 import Image from 'next/image';
 import { Button } from '@heroui/react';
 import {ArrowUpRightFromSquare} from '@gravity-ui/icons';
+import Link from 'next/link';
 const HeroSection = () => {
   return (
     <div className="w-full flex items-center justify-center">
@@ -47,11 +48,12 @@ const HeroSection = () => {
           Discover innovative ideas, collaborate with creators, and
           validate concepts through community feedback.
         </p>
-      
+        <Link href="/ideas">
         <Button variant='primary' color="brand" className="mt-2 md:mt-6 text-[10px] md:text-xl md:px-8 md:py-6">
           Explore Ideas
           <ArrowUpRightFromSquare className="w-3 h-3 md:w-4 md:h-4" />
         </Button>
+        </Link>
       </div>
     </div>
   </div>
@@ -75,11 +77,12 @@ const HeroSection = () => {
         <p className="mt-2 md:mt-4 text-sm w-2/4 md:w-full text-[7px] md:text-lg text-gray-200">
          Share your startup ideas, explore what others are building, and engage in discussions that help ideas grow stronger. Your feedback today can shape tomorrow’s success
         </p>
-
-        <Button variant='primary' color="primary" className="mt-2 md:mt-6 text-[10px] md:text-xl md:px-8 md:py-6">
-          Explore Ideas
-          <ArrowUpRightFromSquare className="w-3 h-3 md:w-4 md:h-4" />
-        </Button>
+        <Link href="/ideas">
+          <Button variant='primary' color="primary" className="mt-2 md:mt-6 text-[10px] md:text-xl md:px-8 md:py-6">
+            Explore Ideas
+            <ArrowUpRightFromSquare className="w-3 h-3 md:w-4 md:h-4" />
+          </Button>
+        </Link>
       </div>
     </div>
   </div>
@@ -104,12 +107,12 @@ const HeroSection = () => {
         <p className="mt-2 md:mt-4 text-sm w-2/4 md:w-full text-[7px] md:text-lg">
           A community-driven platform for idea validation and engagement. Share, explore, provide feedback, and refine concepts collectively.
         </p>
-
-        <Button variant='primary' color="primary" className="mt-2 md:mt-6 text-[10px] md:text-xl md:px-8 md:py-6">
-          
-          Explore Ideas
-          <ArrowUpRightFromSquare className="w-3 h-3 md:w-4 md:h-4" />
-        </Button>
+        <Link href="/ideas">
+          <Button variant='primary' color="primary" className="mt-2 md:mt-6 text-[10px] md:text-xl md:px-8 md:py-6">
+            Explore Ideas
+            <ArrowUpRightFromSquare className="w-3 h-3 md:w-4 md:h-4" />
+          </Button>
+        </Link>
       </div>
     </div>
   </div>
