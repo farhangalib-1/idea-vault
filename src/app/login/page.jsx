@@ -1,6 +1,6 @@
 "use client";
 import { authClient } from "@/lib/auth-client";
-import {FloppyDisk} from "@gravity-ui/icons";
+import { FcGoogle } from "react-icons/fc";
 import {
   Button,
   Description,
@@ -13,6 +13,7 @@ import {
   TextArea,
   TextField,
 } from "@heroui/react";
+import Link from "next/link";
 import { redirect } from "next/navigation";
 const page = () => {
      const onSubmit = async (e) => {
@@ -32,7 +33,7 @@ const page = () => {
         alert("Login successful! Welcome back, " + data.user.name);
         redirect("/");
     }
-    console.log(data, error);
+
   };
   return (
      <div className="flex items-center justify-center rounded-3xl bg-surface p-6">
@@ -59,12 +60,25 @@ const page = () => {
         <FieldError />
       </TextField>
             </Fieldset.Group>
-            <Fieldset.Actions>
+            <Fieldset.Actions className="flex flex-col gap-3">
               <Button type="submit" className="w-full" variant="primary" color="brand">
                 Login
               </Button>
+              <Button type="submit" className="w-full" variant="outline" color="brand">
+                <FcGoogle className="mr-2" />
+                Sign in with Google
+              </Button>
             </Fieldset.Actions>
           </Fieldset>
+          <p className="text-center text-sm text-gray-600 mt-3">
+  Don't have an account?{" "}
+  <Link
+    href="/register"
+    className="font-semibold text-sky-600 hover:text-sky-700 hover:underline"
+  >
+    Create one
+  </Link>
+</p>
         </Form>
       </Surface>
     </div>

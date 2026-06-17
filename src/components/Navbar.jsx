@@ -10,11 +10,15 @@ import {
   Persons,
   Person,
 } from "@gravity-ui/icons";
+import { authClient } from "@/lib/auth-client";
+import { Button } from "@heroui/react";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-
-  const user = null;
+  const { data: session } = authClient.useSession()
+  const user = session?.user || null;
+  console.log(user);
+  
 
   return (
     <header className="w-full border-b border-white/20 bg-white/30 backdrop-blur-xl shadow-sm">
@@ -58,13 +62,27 @@ const Navbar = () => {
               </Link>
             </>
           ) : (
+            <>
             <Link
               href="/profile"
               className="flex items-center gap-2"
             >
-              <Person width={18} height={18} />
-              Profile
+            {
+              user.image ? (
+                <img
+                  src={user.image} 
+                  alt="Profile"
+                  className="rounded-full w-10 h-10 object-cover"
+                />
+              ) : (
+                <Person width={18} height={18} />
+              )}
+              {user.name && <span>{user.name}</span>}
             </Link>
+            <Button onClick={async() => await authClient.signOut()}>
+              Logout
+            </Button>
+            </>
           )}
         </div>
         <button
@@ -149,14 +167,27 @@ const Navbar = () => {
               </Link>
             </>
           ) : (
-            <Link
+            <>
+             <Link
               href="/profile"
               className="flex items-center gap-2"
-              onClick={() => setIsOpen(false)}
             >
-              <Person width={18} height={18} />
-              Profile
+            {
+              user.image ? (
+                <img
+                  src={user.image} 
+                  alt="Profile"
+                  className="rounded-full w-10 h-10 object-cover"
+                />
+              ) : (
+                <Person width={18} height={18} />
+              )}
+              {user.name && <span>{user.name}</span>}
             </Link>
+            <Button className="w-full">
+              Logout
+            </Button>
+            </>
           )}
         </div>
       </div>

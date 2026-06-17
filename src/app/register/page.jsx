@@ -15,11 +15,12 @@ const page = () => {
 });
 console.log(userData);
 console.log(data, error);
+await authClient.signOut()
 redirect("/login");
   };
   return (
-    <div className="flex items-center justify-center rounded-3xl bg-surface p-10">
-     <Form className="border flex w-96 flex-col gap-4 p-4 rounded-2xl " onSubmit={onSubmit}>
+    <div className="flex items-center justify-center rounded-3xl bg-surface p-10 ">
+     <Form className="flex w-96 flex-col gap-4 p-7 rounded-2xl backdrop-blur-xl shadow-lg " onSubmit={onSubmit}>
        <h1 className="text-xl font-bold">Join IdeaVault Today</h1>
         <Description>Create an account to share innovative ideas, discover new opportunities, and collaborate with a community of creators.</Description>
         <TextField
@@ -87,6 +88,7 @@ redirect("/login");
           Reset
         </Button>
       </div>
+      
     </Form>
     </div>
   )
