@@ -1,18 +1,36 @@
 "use client";
-import {Check} from "@gravity-ui/icons";
+import { authClient } from "@/lib/auth-client";
 import {Button, Description, FieldError, Fieldset, Form, Input, Label, TextField} from "@heroui/react";
+import { redirect } from "next/navigation";
 const page = () => {
-    const onSubmit = (e) => {
+    const onSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
-    const data = Object.fromEntries(formData.entries());
-    console.log(data);
+    const userData = Object.fromEntries(formData.entries());
+    const { data, error } = await authClient.signUp.email({
+    name: userData.name,
+    email: userData.email, // required
+    password: userData.password, // required
+    image: userData.image,
+});
+console.log(userData);
+console.log(data, error);
+redirect("/login");
   };
   return (
     <div className="flex items-center justify-center rounded-3xl bg-surface p-10">
      <Form className="border flex w-96 flex-col gap-4 p-4 rounded-2xl " onSubmit={onSubmit}>
        <h1 className="text-xl font-bold">Join IdeaVault Today</h1>
         <Description>Create an account to share innovative ideas, discover new opportunities, and collaborate with a community of creators.</Description>
+        <TextField
+        isRequired
+        name="name"
+        type="text"
+      >
+        <Label>Name</Label>
+        <Input placeholder="John Doe" />
+        <FieldError />
+      </TextField>
       <TextField
         isRequired
         name="email"
@@ -63,8 +81,7 @@ const page = () => {
       </TextField>
       <div className="flex gap-2">
         <Button type="submit">
-          <Check />
-          Submit
+          Sign Up
         </Button>
         <Button type="reset" variant="secondary">
           Reset
