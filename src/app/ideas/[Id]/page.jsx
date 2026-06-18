@@ -2,6 +2,7 @@ import React from 'react'
 import {Button, Chip, Form} from "@heroui/react";
 import Image from 'next/image';
 import CommentForm from '@/components/CommentForm';
+import CommentList from '@/components/CommentList';
 
 const page = async({ params }) => {
     const {Id} = await params;
@@ -39,24 +40,7 @@ const page = async({ params }) => {
         <h1 className='text-2xl font-bold mb-4'>Comments</h1>
         <CommentForm ideaId={Id} />
         <div >
-          {
-             comments.map(comment=>
-            <div key={comment._id} className='border p-4 rounded-lg my-4 bg-gray-50 flex items-center gap-3'>
-              <div className='flex items-center gap-3 mb-2'>
-                <img src={comment.image} alt={comment.name} className='rounded-full w-10 h-10 object-cover' />
-              </div>
-              <div>
-                 <h2 className='text-lg font-semibold'>{comment.name}</h2>
-                <p className='text-gray-900'>{comment.message}</p>
-                <p className='text-gray-400 text-[12px]'> {new Date(comment.createdAt).toLocaleDateString("en-GB", {
-    day: "numeric",
-    month: "short",
-    year: "numeric",
-  })}</p>
-              </div>
-           
-            </div>)
-          }
+        <CommentList comments={comments}  />
         </div>
       </div>
     </div>
