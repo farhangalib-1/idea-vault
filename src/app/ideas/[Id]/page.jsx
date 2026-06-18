@@ -5,15 +5,9 @@ import Image from 'next/image';
 
 const page = async({ params }) => {
     const {Id} = await params;
-    const res = await fetch(`http://localhost:5000/allcollections/${Id}`);
+    const res = await fetch(`https://idea-vault-webserver.vercel.app/allcollections/${Id}`);
     const data = await res.json();
-    const comment = await fetch("http://localhost:5000/comments", {
-        method: "POST",
-        headers:{
-            "Content-Type": "application/json"
-        },
-        body:  JSON.stringify()
-    });
+   
 
     
   return (
