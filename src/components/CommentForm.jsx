@@ -29,6 +29,7 @@ const CommentForm = ({ideaId}) => {
     })
     const data = await res.json();
     console.log(data);
+    window.location.reload();
   }
   return (
     <div>
