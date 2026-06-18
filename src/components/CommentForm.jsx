@@ -2,7 +2,7 @@
 import { authClient } from "@/lib/auth-client";
 import {Button, Form} from "@heroui/react";
 import {Description, Label, TextArea, TextField} from "@heroui/react";
-const CommentForm = () => {
+const CommentForm = ({ideaId}) => {
     const { data: session } = authClient.useSession()
       const user = session?.user || null;
       const name = user?.name || "Anonymous";
@@ -14,9 +14,11 @@ const CommentForm = () => {
     const formData = new FormData(e.currentTarget);
     const commentData = Object.fromEntries(formData.entries());
      const userData ={
+        ideaId,
         name,
         image,
-        ...commentData
+        ...commentData,
+        createdAt: new Date(),
       }
     const res = await fetch("http://localhost:5000/comments", {
         method: "POST",

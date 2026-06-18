@@ -7,12 +7,12 @@ const page = async({ params }) => {
     const {Id} = await params;
     const res = await fetch(`https://idea-vault-webserver.vercel.app/allcollections/${Id}`);
     const data = await res.json();
-    const commentRes = await fetch("https://idea-vault-webserver.vercel.app/comments")
+    const commentRes = await fetch(`https://idea-vault-webserver.vercel.app/comments/${Id}`)
     const comments = await commentRes.json();
     console.log(comments);
 
     const date = new Date().toDateString();
-  
+
     
   return (
     <div>
@@ -37,10 +37,10 @@ const page = async({ params }) => {
       </div>
       <div className='border p-5 rounded-lg shadow-md bg-white/30 backdrop-blur-xl w-11/12  md:w-5/12 mx-auto my-10'>
         <h1 className='text-2xl font-bold mb-4'>Comments</h1>
-        <CommentForm />
+        <CommentForm ideaId={Id} />
         <div >
           {
-            comments.map(comment=>
+             comments.map(comment=>
             <div key={comment._id} className='border p-4 rounded-lg my-4 bg-gray-50 flex items-center gap-3'>
               <div className='flex items-center gap-3 mb-2'>
                 <img src={comment.image} alt={comment.name} className='rounded-full w-10 h-10 object-cover' />
@@ -48,7 +48,11 @@ const page = async({ params }) => {
               <div>
                  <h2 className='text-lg font-semibold'>{comment.name}</h2>
                 <p className='text-gray-900'>{comment.message}</p>
-                <p className='text-gray-400 text-[12px]'>{date}</p>
+                <p className='text-gray-400 text-[12px]'> {new Date(comment.createdAt).toLocaleDateString("en-GB", {
+    day: "numeric",
+    month: "short",
+    year: "numeric",
+  })}</p>
               </div>
            
             </div>)
