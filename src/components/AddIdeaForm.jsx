@@ -8,10 +8,12 @@ const AddIdeaForm = () => {
        const { data: session } = authClient.useSession()
     const user = session?.user || null;
     const email = user?.email || "abc@email.com"
+    const userId = user?.id
   const handleSubmit = async(e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
     const data = {
+      userId,
       email,
       ideaTitle: formData.get("ideaTitle"),
       shortDescription: formData.get("shortDescription"),
