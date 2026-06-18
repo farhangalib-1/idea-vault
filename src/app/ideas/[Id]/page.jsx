@@ -1,14 +1,18 @@
 import React from 'react'
 import {Button, Chip, Form} from "@heroui/react";
-import {Description, Label, TextArea, TextField} from "@heroui/react";
 import Image from 'next/image';
+import CommentForm from '@/components/CommentForm';
 
 const page = async({ params }) => {
     const {Id} = await params;
     const res = await fetch(`https://idea-vault-webserver.vercel.app/allcollections/${Id}`);
     const data = await res.json();
-   
+    const commentRes = await fetch("https://idea-vault-webserver.vercel.app/comments")
+    const comments = await commentRes.json();
+    console.log(comments);
 
+    const date = new Date().toDateString();
+  
     
   return (
     <div>
@@ -33,16 +37,23 @@ const page = async({ params }) => {
       </div>
       <div className='border p-5 rounded-lg shadow-md bg-white/30 backdrop-blur-xl w-11/12  md:w-5/12 mx-auto my-10'>
         <h1 className='text-2xl font-bold mb-4'>Comments</h1>
-        <Form >
-         <TextField className="w-full" name="message">
-      <Label>your comment</Label>
-      <TextArea placeholder="Write your comment here..." rows={4} />
-      <Description>Maximum 500 characters</Description>
-    </TextField>
-    <Button type='submit'  className="mt-4" color="primary">
-      Post Comment
-    </Button>
-    </Form> 
+        <CommentForm />
+        <div >
+          {
+            comments.map(comment=>
+            <div key={comment._id} className='border p-4 rounded-lg my-4 bg-gray-50 flex items-center gap-3'>
+              <div className='flex items-center gap-3 mb-2'>
+                <img src={comment.image} alt={comment.name} className='rounded-full w-10 h-10 object-cover' />
+              </div>
+              <div>
+                 <h2 className='text-lg font-semibold'>{comment.name}</h2>
+                <p className='text-gray-900'>{comment.message}</p>
+                <p className='text-gray-400 text-[12px]'>{date}</p>
+              </div>
+           
+            </div>)
+          }
+        </div>
       </div>
     </div>
   )
