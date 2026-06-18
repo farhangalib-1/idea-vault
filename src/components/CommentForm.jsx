@@ -7,7 +7,7 @@ const CommentForm = ({ideaId}) => {
       const user = session?.user || null;
       const name = user?.name || "Anonymous";
       const image = user?.image || "https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y";
-     
+      const email = user?.email || "abc@email.com"
       console.log(user);
     const onSubmit = async (e) => {
     e.preventDefault();
@@ -15,6 +15,7 @@ const CommentForm = ({ideaId}) => {
     const commentData = Object.fromEntries(formData.entries());
      const userData ={
         ideaId,
+        email,
         name,
         image,
         ...commentData,

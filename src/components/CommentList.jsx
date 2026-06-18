@@ -4,10 +4,14 @@ import { Button } from "@heroui/react";
 import { useRouter } from "next/navigation";
 import {TrashBin} from '@gravity-ui/icons';
 import {PencilToSquare} from '@gravity-ui/icons';
+import { authClient } from "@/lib/auth-client";
 const CommentList = ({ comments }) => {
   const router = useRouter();
-
-  const handleDelete = async (id) => {
+       const { data: session } = authClient.useSession()
+       const user = session?.user || null;
+       const email = user?.email || "abc@email.com"
+       console.log(email)
+         const handleDelete = async (id) => {
     await fetch(
       `https://idea-vault-webserver.vercel.app/comments/${id}`,
       {
@@ -33,8 +37,11 @@ const CommentList = ({ comments }) => {
     month: "short",
     year: "numeric",
   })}</p>
-    
-     <Button className="mt-2 mr-3.5" variant="outline"
+    {
+        comment.email === email && 
+        (
+        <>
+        <Button className="mt-2 mr-3.5" variant="outline"
             onClick={() => handleEdit(comment._id)}
           >
             <PencilToSquare/>
@@ -46,6 +53,10 @@ const CommentList = ({ comments }) => {
             <TrashBin/>
             Delete
     </Button>
+        </>
+        )
+    }
+     
               </div>
      
     </div>
