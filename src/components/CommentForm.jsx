@@ -21,7 +21,7 @@ const CommentForm = ({ideaId}) => {
         ...commentData,
         createdAt: new Date(),
       }
-    const res = await fetch("http://localhost:5000/comments", {
+    const res = await fetch("https://idea-vault-webserver.vercel.app/comments", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
