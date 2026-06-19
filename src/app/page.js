@@ -1,3 +1,4 @@
+import Footer from "@/components/Footer";
 import HeroSection from "@/components/HeroSection";
 import InnovationChallenges from "@/components/InnovationChallenges";
 import Toprated from "@/components/Toprated";
@@ -10,6 +11,7 @@ export default function Home() {
       <Toprated />
       <InnovationChallenges />
       <TrendingProblemHub />
+      <Footer />
   </div>
   );
 }
