@@ -1,36 +1,30 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# IdeaVault 🚀
+<img width="1901" height="927" alt="image" src="https://github.com/user-attachments/assets/79d68fa0-2018-4266-8084-50afc8f7f462" />
 
-## Getting Started
+IdeaVault is a web-based platform designed for aspiring entrepreneurs, creators, and innovators to share startup ideas, explore emerging concepts, and engage with a community of like-minded individuals. Instead of focusing on scheduling or booking, the platform centers entirely on community-driven idea validation and collective refinement.
 
-First, run the development server:
+🌐 **Live Site:** [Explore IdeaVault Live](https://idea-vault-phi.vercel.app/)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🌟 Key Features
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+*   **Community-Driven Idea Validation:** Post your innovative startup concepts and receive real-world feedback to test viability before building.
+*   **Dynamic Interactive Discussions:** Engage with creators and peers through a nested comment and discussion system built for constructive critique.
+*   **Trending & Discovery Feed:** Explore a curated dashboard highlighting trending ideas, high-engagement concepts, and recent innovations.
+*   **Collaborative Concept Refinement:** Iterate on concepts collectively, allowing community suggestions to help shape raw ideas into structured business models.
+*   **Modern, Fluid Interface:** A highly responsive user experience utilizing cutting-edge UI component libraries for clean, distraction-free reading and brainstorming.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 🛠️ Tech Stack
 
-To learn more about Next.js, take a look at the following resources:
+### Front-End
+*   **Next.js** – React framework for production-grade web applications.
+*   **HeroUI** – Sleek, modern component library for rapid UI development.
+*   **Gravity UI Icons & React Icons** – Crisp, scalable iconography for enhanced visual cues.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Back-End & Database
+*   **Node.js & Express.js** – Scalable server environment and flexible routing architecture.
+*   **MongoDB** – NoSQL database optimized for flexible, document-based data storage (ideas, users, and discussions).
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
