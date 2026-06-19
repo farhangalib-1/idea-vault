@@ -15,8 +15,6 @@ const CommentList = ({ comments }) => {
   const { data: session } = authClient.useSession();
   const user = session?.user || null;
   const email = user?.email;
-
-  // Delete Comment
   const handleDelete = async (id) => {
     try {
       await fetch(`https://idea-vault-webserver.vercel.app/comments/${id}`, {
@@ -28,14 +26,10 @@ const CommentList = ({ comments }) => {
       console.error(error);
     }
   };
-
-  // Start Editing
   const handleEdit = (comment) => {
     setEditingId(comment._id);
     setEditMessage(comment.message);
   };
-
-  // Save Updated Comment
   const handleUpdate = async (id) => {
     try {
       await fetch(`https://idea-vault-webserver.vercel.app/comments/${id}`, {
