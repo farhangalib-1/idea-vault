@@ -1,6 +1,7 @@
 "use client";
 
 import { authClient } from "@/lib/auth-client";
+import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import React from "react";
 
@@ -40,7 +41,7 @@ const AddIdeaForm = () => {
     })
       const resData = await res.json()
       console.log(resData)
-      redirect("/ideas")
+      revalidatePath("/ideas")
   };
 
 
