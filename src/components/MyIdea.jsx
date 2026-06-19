@@ -2,6 +2,7 @@
 
 import { authClient } from "@/lib/auth-client";
 import IdeaCard from "./IdeaCard";
+import { Button } from "@heroui/react";
 
 const MyIdea = ({ data }) => {
   const { data: session } = authClient.useSession();
@@ -21,6 +22,7 @@ const MyIdea = ({ data }) => {
           idea={idea}
         />
       ))}
+      
     </div>
   );
 };
