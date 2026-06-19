@@ -5,6 +5,7 @@ import {Description, Label, TextArea, TextField} from "@heroui/react";
 const CommentForm = ({ideaId}) => {
     const { data: session } = authClient.useSession()
       const user = session?.user || null;
+      const userId = user?.id
       const name = user?.name || "Anonymous";
       const image = user?.image || "https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y";
       const email = user?.email || "abc@email.com"
@@ -14,6 +15,7 @@ const CommentForm = ({ideaId}) => {
     const formData = new FormData(e.currentTarget);
     const commentData = Object.fromEntries(formData.entries());
      const userData ={
+         userId,
         ideaId,
         email,
         name,
