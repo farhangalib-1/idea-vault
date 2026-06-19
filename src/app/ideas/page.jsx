@@ -1,7 +1,9 @@
 import IdeaCard from '@/components/IdeaCard';
 import SearchSection from '@/components/SearchSection';
 const page = async () => {
-    const res = await fetch("https://idea-vault-webserver.vercel.app/allcollections");
+    const res = await fetch("https://idea-vault-webserver.vercel.app/allcollections"{
+    cache: "no-store"
+  });
     const data = await res.json();
   return (
     <div>

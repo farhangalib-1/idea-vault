@@ -1,12 +1,9 @@
 "use client";
-
 import { authClient } from "@/lib/auth-client";
-import { revalidatePath } from "next/cache";
-
-import React from "react";
+import { redirect } from "next/navigation";
 
 const AddIdeaForm = () => {
-       const { data: session } = authClient.useSession()
+    const { data: session } = authClient.useSession()
     const user = session?.user || null;
     const email = user?.email || "abc@email.com"
     const userId = user?.id
@@ -40,8 +37,7 @@ const AddIdeaForm = () => {
         body: JSON.stringify(data)
     })
       const resData = await res.json()
-      console.log(resData)
-      revalidatePath("/ideas")
+      redirect("/ideas")
   };
 
 
