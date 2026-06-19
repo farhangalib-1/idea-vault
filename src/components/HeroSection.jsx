@@ -23,7 +23,7 @@ const HeroSection = () => {
           clickable: true,
         }}
         modules={[Autoplay, Pagination]}
-        className="h-[30vh] md:h-[79vh]"
+        className="h-[33vh] md:h-[91vh]"
       >
         <SwiperSlide>
   <div className="relative h-full w-full">

@@ -51,7 +51,7 @@ const OwnComment = ({data}) => {
       {
         ownComment.map(el=>
         <div key={el._id} >
-        <div className='w-11/12 mx-auto border px-10 py-10 rounded-2xl'>
+        <div className='w-11/12 mx-auto mb-5 border px-10 py-10 rounded-2xl'>
         <h1 className='font-bold'>{el.message}</h1>
          <p className="text-gray-400 text-[12px]">
                   {new Date(el.createdAt).toLocaleDateString("en-GB", {
