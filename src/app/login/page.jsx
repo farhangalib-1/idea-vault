@@ -84,6 +84,15 @@ const page = () => {
     Create one
   </Link>
 </p>
+<p className="text-center text-sm text-gray-600 mt-3">
+  Forget you password?{" "}
+  <Link
+    href="/resetpassword"
+    className="font-semibold text-sky-600 hover:text-sky-700 hover:underline"
+  >
+    Forget Password
+  </Link>
+</p>
         </Form>
       </Surface>
     </div>
